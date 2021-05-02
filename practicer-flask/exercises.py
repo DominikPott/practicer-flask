@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template
 
-from practicer.api import exercises
+import practicer.api
 
 bp = Blueprint('exercises', __name__, )
 
 
 @bp.route('/')
 def exercise():
-    return render_template("exercises.html", exercises=exercises())
+    return render_template("exercises.html", exercises=practicer.api.exercises())
