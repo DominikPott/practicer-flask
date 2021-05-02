@@ -12,7 +12,14 @@ def exercise_file(filepath):
     return url
 
 
-app.register_blueprint(practicer_flask.exercises.bp)
+#app.register_blueprint(practicer_flask.exercises.bp)
+
+@app.route("/")
+def index():
+    import practicer.api
+    es = [e["label"] for e in practicer.api.exercises()]
+    e = "Exercises: " + " | ".join(es)
+    return e
 
 if __name__ == "__main__":
     app.run()
