@@ -1,0 +1,1 @@
+web: gunicorn practicer-flask.app:app
