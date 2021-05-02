@@ -1,1 +1,1 @@
-web: gunicorn practicer-flask.app:app
+web: gunicorn practicer_flask.app:app
