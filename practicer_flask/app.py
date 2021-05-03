@@ -6,6 +6,7 @@ from practicer_flask import log
 app = Flask(__name__)
 
 
+@app.route('/', defaults={'filepath': ''})
 @app.route('/<path:filepath>')
 def exercise_file(filepath):
     log.debug("Exercise_File: " + filepath)
