@@ -13,7 +13,7 @@ def exercise_file(filepath):
     d = os.path.dirname(filepath)
     filename = os.path.basename(filepath)
     url = send_from_directory(d, filename, as_attachment=True)
-    log.debug("Url:" + url)
+    log.debug("Url:" + str(url))
     return url
 
 
