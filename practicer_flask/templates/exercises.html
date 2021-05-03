@@ -1,27 +1,30 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Exercises{% endblock %}</h1>
+<h1>{% block title %}Exercises{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-  {% for exercise in exercises %}
-    <article class="post">
-      <header>
+{% for exercise in exercises %}
+<article class="post">
+    <header>
         <div>
-          <h1>{{ exercise['label'] }}</h1>
-          <div class="about">Id {{ exercise["uuid"] }}</div>
+            <h1>{{ exercise['label'] }}</h1>
+            <div class="about">Id {{ exercise["uuid"] }}</div>
         </div>
 
-      </header>
-      <p class="body">{{ exercise['instruction'] }}<br><br>
-      <img src="{{ url_for('exercise_file', filepath=exercise['thumbnail']) }}" width="640" height="360"><br>
-        <a href="{{ url_for('exercise_file', filepath=exercise['template']) }}" download> <button type="button">Exercise
-        </button> </a>
-      </p>
-    </article>
-    {% if not loop.last %}
-      <hr>
-    {% endif %}
-  {% endfor %}
+    </header>
+    <p class="body">{{ exercise['instruction'] }}<br>
+        {{ url_for('exercise_file', filepath=exercise['thumbnail']) }}<br>
+        <img src="{{ url_for('exercise_file', filepath=exercise['thumbnail']) }}" width="640" height="360"><br>
+        <a href="{{ url_for('exercise_file', filepath=exercise['template']) }}" download>
+            <button type="button">Exercise
+            </button>
+        </a>
+    </p>
+</article>
+{% if not loop.last %}
+<hr>
+{% endif %}
+{% endfor %}
 {% endblock %}
