@@ -1,10 +1,14 @@
 from flask import Flask, send_from_directory
 
 import practicer_flask.exercises
+from practicer_flask import log
+
 app = Flask(__name__)
+
 
 @app.route('/exercises/<path:filepath>')
 def exercise_file(filepath):
+    log.debug("ExerciseFile: " + filepath)
     import os
     d = os.path.dirname(filepath)
     filename = os.path.basename(filepath)
@@ -13,7 +17,6 @@ def exercise_file(filepath):
 
 
 app.register_blueprint(practicer_flask.exercises.bp)
-
 
 if __name__ == "__main__":
     app.run()
