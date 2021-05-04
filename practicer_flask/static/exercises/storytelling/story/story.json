@@ -1,0 +1,23 @@
+{
+  "name": "story",
+  "label": "Story",
+  "uuid": "164e9314-c444-4fbf-b5e3-c9c4160b6356",
+  "level": 4.0,
+  "tags": [
+    "storytelling",
+    "intermediate"
+  ],
+  "categories": [
+    "storytelling",
+    "story"
+  ],
+  "thumbnail": "story.jpg",
+  "template": "story.psd",
+  "instruction": "Include story elements inside your painting / illustration",
+  "hyperlinks": [
+    "https://www.youtube.com/watch?v=TUCcx-S4DeA",
+    "https://www.artistsnetwork.com/magazine/turn-picture-story-painting-boats/",
+    "https://www.youtube.com/watch?v=cAZjDFT0dFI",
+    "https://painting.tube/master-class-jason-scheier-color-and-light-for-visual-storytelling-adobe-france-in-english/"
+  ]
+}

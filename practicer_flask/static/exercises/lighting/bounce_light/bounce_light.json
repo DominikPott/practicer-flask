@@ -1,0 +1,24 @@
+{
+  "name": "bounce_light",
+  "label": "Bounce Light",
+  "uuid": "735ee53d-7106-4a88-99a4-7b2b5c74fa2e",
+  "level": 3.0,
+  "tags": [
+    "value",
+    "painting",
+    "bounce light",
+    "color",
+    "fundamental"
+  ],
+  "categories": [
+    "light"
+  ],
+  "thumbnail": "bounce_light.jpg",
+  "template": "bounce_light.psd",
+  "instruction": "Paint the effect of light bouncing of objects and onto others. Paint the effect of light bouncing of objects and onto others.",
+  "hyperlinks": [
+    "https://www.artistsnetwork.com/art-mediums/oil-painting/painting-how-to-use-reflected-light/",
+    "https://www.artistsandillustrators.co.uk/how-to/still-life/254/understanding-light-and-form",
+    "https://gurneyjourney.blogspot.com/search/label/Lighting"
+  ]
+}

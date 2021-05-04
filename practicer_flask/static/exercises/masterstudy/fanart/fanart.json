@@ -1,0 +1,21 @@
+{
+  "name": "fanart",
+  "label": "Fanart",
+  "uuid": "013d6721-e150-469c-acc9-6246d2b1f13e",
+  "level": 2.5,
+  "tags": [
+    "painting",
+    "color",
+    "intermediate"
+  ],
+  "categories": [
+    "masterstudy"
+  ],
+  "thumbnail": "fanart.jpg",
+  "template": "fanart.psd",
+  "instruction": "Make fanart of your favorite artworks.",
+  "hyperlinks": [
+    "https://www.deviantart.com/topic/fan-art",
+    "https://en.wikipedia.org/wiki/Fan_art"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "value_texture",
+  "label": "Value Texture",
+  "uuid": "5b72ea35-f286-4df6-80a5-750bf8541661",
+  "level": 2.5,
+  "tags": [
+    "value",
+    "painting",
+    "texture",
+    "fundamental"
+  ],
+  "categories": [
+    "painting"
+  ],
+  "template": "value_texture.psd",
+  "thumbnail": "value_texture.jpg",
+  "instruction": "Paint imaginative or refernced simple objects. Blend a phototexture into some area and adjust its values to match your painting.",
+  "hyperlinks": ["https://www.outdoorpainter.com/painting-basics-understanding-value/"]
+}

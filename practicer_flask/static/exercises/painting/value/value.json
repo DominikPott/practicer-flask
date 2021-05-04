@@ -1,0 +1,23 @@
+{
+  "name": "value",
+  "label": "Value",
+  "uuid": "ca338117-1474-47b1-867d-c87b9ece3822",
+  "level": 2.0,
+  "tags": [
+    "value",
+    "painting",
+    "edge",
+    "color",
+    "fundamental",
+    "shading"
+  ],
+  "categories": [
+    "painting"
+  ],
+  "thumbnail": "value.jpg",
+  "template": "value.psd",
+  "instruction": "Paint imaginative or refernced simple objects and studie the values.",
+  "hyperlinks": [
+    "https://www.deviantart.com/nsio/art/Nsio-Explains-Shading-Basics-647268365"
+  ]
+}

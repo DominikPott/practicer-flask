@@ -1,0 +1,23 @@
+{
+  "name": "ambient_occlusion",
+  "label": "Ambient Occlusion",
+  "uuid": "36ec82ef-7719-40ae-bced-8816935588be",
+  "level": 3.0,
+  "tags": [
+    "value",
+    "painting",
+    "ambient occlusion",
+    "fundamental"
+  ],
+  "categories": [
+    "light"
+  ],
+  "thumbnail": "ambient_occlusion.jpg",
+  "template": "ambient_occlusion.psd",
+  "instruction": "Paint the Ambient Occlusion for different Objects. Paint a simple object and add lights from different directions. These should vary in color and intensity.",
+  "hyperlinks": [
+    "https://youtu.be/WiC4tiOSn_M",
+    "https://en.wikipedia.org/wiki/Ambient_occlusion",
+    "https://cdnb.artstation.com/p/assets/images/images/001/434/481/large/david-adhinarya-lojaya-tutorial-descriptions.jpg?1446384250"
+  ]
+}

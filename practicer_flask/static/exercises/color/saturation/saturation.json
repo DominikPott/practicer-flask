@@ -1,0 +1,22 @@
+{
+  "name": "saturation",
+  "label": "Hue and Saturation",
+  "uuid": "2143ace5-c7d4-4817-8ba9-b390e471881c",
+  "level": 2.0,
+  "tags": [
+    "saturation",
+    "hue",
+    "composition",
+    "painting",
+    "fundamental"
+  ],
+  "categories": [
+    "color",
+    "composition",
+    "painting"
+  ],
+  "thumbnail": "saturation.jpg",
+  "template": "saturation.psd",
+  "instruction": "After <b>Nathan Fowkes</b>: Blend together colors that have contrast of hue and saturation in any way you find interesting. Make sure the colors have very litthe contrast. ",
+  "hyperlinks": ["http://www.nathanfowkesart.com/"]
+}

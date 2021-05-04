@@ -1,0 +1,23 @@
+{
+  "name": "studying",
+  "label": "Studying",
+  "uuid": "d7fafbb3-c1c4-4ecc-b1df-4b0d13706428",
+  "level": 1.0,
+  "tags": [
+    "visual library",
+    "fundamental"
+  ],
+  "categories": [
+    "visual library"
+  ],
+  "thumbnail": "",
+  "template": "",
+  "instruction": "Overthink your approach how you study a subject.<br>Notice whats the best way for you to learn and remember new things.<br>You might want to study a subject for several days, changing the exercises from copying in the begining to redraw from memory more often.",
+  "hyperlinks": [
+    "https://www.youtube.com/watch?v=L303Qy6rivs&t=594s",
+    "https://www.youtube.com/watch?v=duSzh2EwNyw",
+    "https://www.youtube.com/watch?v=6e9bCA5DC4A&t=616s",
+    "https://www.youtube.com/watch?v=sY_eAR0HKus",
+    "https://www.youtube.com/watch?v=zF003DnMpog"
+  ]
+}

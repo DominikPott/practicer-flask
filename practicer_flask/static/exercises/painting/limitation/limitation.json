@@ -1,0 +1,17 @@
+{
+  "name": "limitation",
+  "label": "Limitation",
+  "uuid": "0b2b24a5-dfdd-46db-afa5-b0ffad4efd0f",
+  "level": 1.5,
+  "tags": [
+    "painting",
+    "fundamental"
+  ],
+  "categories": [
+    "painting"
+  ],
+  "thumbnail": "limitation.jpg",
+  "template": "limitation.psd",
+  "instruction": "Simplify the refernce into big brushstrockes. Zoom out of the picture while painting.",
+  "hyperlinks": ["https://www.heavypaint.app/"]
+}

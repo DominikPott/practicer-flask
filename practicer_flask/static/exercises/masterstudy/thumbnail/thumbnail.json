@@ -1,0 +1,26 @@
+{
+  "name": "thumbnail",
+  "label": "Thumbnail",
+  "uuid": "144dd191-063d-478b-911b-83b2dbcbd1b0",
+  "level": 2.5,
+  "tags": [
+    "value",
+    "composition",
+    "painting",
+    "edge",
+    "color",
+    "intermediate"
+  ],
+  "categories": [
+    "masterstudy"
+  ],
+  "thumbnail": "thumbnail.jpg",
+  "template": "thumbnail.psd",
+  "instruction": "Study Masterpaintings by generating thumbnails. Paint a miniture masterstudy. Focus on Value, Composition, Edges and Color.",
+  "hyperlinks": [
+    "https://www.youtube.com/watch?v=qe6thgSaJKE",
+    "https://www.proko.com/developing-your-style-by-studying-the-masters",
+    "https://www.youtube.com/watch?v=zF003DnMpog",
+    "https://www.youtube.com/watch?v=OGI6LtdB5c0"
+  ]
+}

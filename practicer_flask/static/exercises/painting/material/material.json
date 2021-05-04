@@ -1,0 +1,23 @@
+{
+  "name": "material",
+  "label": "Material",
+  "uuid": "6923c7b6-1f72-4d56-b837-b34dd770dae6",
+  "level": 4.0,
+  "tags": [
+    "value",
+    "painting",
+    "edge",
+    "color",
+    "shading",
+    "intermediate"
+  ],
+  "categories": [
+    "painting"
+  ],
+  "thumbnail": "material.jpg",
+  "template": "material.psd",
+  "instruction": "Choose an object which has the material you want to study.<br>Make a sketch of it where you analyse how diffuse / reflective/ transparent / coated it is.<br>Repaint a simple sphere in the material with the reference by its side.<br>Redraw the sphere from memory.<br>Redraw the object from memory.<br>",
+  "hyperlinks": [
+    "https://powercami5000.tumblr.com/post/78140367520/dunno-if-anyones-interested-in-these-but-this"
+  ]
+}

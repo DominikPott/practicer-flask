@@ -1,0 +1,24 @@
+{
+  "name": "shadow",
+  "label": "Shadow Construction",
+  "uuid": "5249267b-751a-48bd-8583-df082fdfa232",
+  "level": 2.0,
+  "tags": [
+    "value",
+    "painting",
+    "edge",
+    "color",
+    "fundamental",
+    "shadow"
+  ],
+  "categories": [
+    "light"
+  ],
+  "thumbnail": "shadow.jpg",
+  "template": "shadow.psd",
+  "instruction": "Construct shadows for simple and complex objects. Construct the shadow of simple grids and sticks. These can be cast on other objects. Try different lights to see the effect of hard or soft shadows.",
+  "hyperlinks": [
+    "https://de.zxc.wiki/wiki/Schattenkonstruktion",
+    "https://www.youtube.com/watch?v=IDrnj8BPp9w"
+  ]
+}

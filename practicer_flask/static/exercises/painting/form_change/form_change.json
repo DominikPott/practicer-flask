@@ -1,0 +1,22 @@
+{
+  "name": "form_change",
+  "label": "Form Change",
+  "uuid": "7df3d14c-f3f7-4c6f-ac0e-fa7f242830ff",
+  "level": 2.0,
+  "tags": [
+    "value",
+    "painting",
+    "fundamental"
+  ],
+  "categories": [
+    "painting"
+  ],
+  "thumbnail": "form_change.jpg",
+  "template": "form_change.clip",
+  "instruction": "Paint objects which have complex form changes and shade them accordingly. Study the value / color behaviour of form changes on complex objects. Holes, half_spheres and other transition between objects.",
+  "hyperlinks": [
+    "https://www.youtube.com/watch?v=zC3OxonJcXQ",
+    "https://3.bp.blogspot.com/-f9eR6tElRtM/VLta6SRX2EI/AAAAAAAAE34/RR9fSqxXht0/s1600/5%2Bproperties%2Bof%2Blight.jpg",
+    "https://3.bp.blogspot.com/-f9eR6tElRtM/VLta6SRX2EI/AAAAAAAAE34/RR9fSqxXht0/s1600/5%2Bproperties%2Bof%2Blight.jpg"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "edges",
+  "label": "Edges",
+  "uuid": "984954a3-9fba-447b-9cbe-00a6d8c3b117",
+  "level": 2.0,
+  "tags": [
+    "value",
+    "painting",
+    "edge",
+    "color",
+    "fundamental"
+  ],
+  "categories": [
+    "painting"
+  ],
+  "thumbnail": "edges.jpg",
+  "template": "edges.psd",
+  "instruction": "Work on hard and soft edges and or lost and found edges.Try blending forms with hard and soft edges. . ..",
+  "hyperlinks": [
+    "https://drawpaintacademy.com/edges/",
+    "https://www.youtube.com/watch?v=Dgv8ECDh_CM"
+  ]
+}

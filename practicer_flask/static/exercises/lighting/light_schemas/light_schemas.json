@@ -1,0 +1,23 @@
+{
+  "name": "light_schemas",
+  "label": "Light Schemas",
+  "uuid": "602b570d-c3a9-4c1e-b6cb-c3a9a4202eca",
+  "level": 3.0,
+  "tags": [
+    "light",
+    "value",
+    "painting",
+    "color",
+    "fundamental"
+  ],
+  "categories": [
+    "light"
+  ],
+  "thumbnail": "light_schemas.jpg",
+  "template": "light_schemas.psd",
+  "instruction": "Paint different light types on simple forms. Key, Fill, Bounce, . .. Paint a simple object and add lights from different directions. These should vary in color and intensity.",
+  "hyperlinks": [
+    "https://painting.tube/master-class-jason-scheier-color-and-light-for-visual-storytelling-adobe-france-in-english/",
+    "https://gurneyjourney.blogspot.com/search/label/Lighting"
+  ]
+}
