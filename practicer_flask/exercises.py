@@ -14,7 +14,9 @@ def exercise():
         path = exercise['path']
         directory = os.path.dirname(path)
 
-        exercise['image'] = 'exercises/' + os.path.basename(os.path.dirname(directory)) + '/' + os.path.basename(
+        exercise['thumbnail'] = 'exercises/' + os.path.basename(os.path.dirname(directory)) + '/' + os.path.basename(
             directory) + '/' + exercise['thumbnail']
-        log.debug(exercise['image'])
+        exercise['template'] = 'exercises/' + os.path.basename(os.path.dirname(directory)) + '/' + os.path.basename(
+            directory) + '/' + exercise['template']
+        log.debug(exercise['thumbnail'])
     return render_template("exercises.html", exercises=exercises)
