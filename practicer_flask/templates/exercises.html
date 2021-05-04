@@ -10,11 +10,9 @@
     <header>
         <div>
             <h1>{{ exercise['label'] }}</h1>
-            <div class="about">Id {{ exercise["uuid"] }}</div>
         </div>
-
     </header>
-    <p class="body">{{ exercise['instruction'] }}<br><br>
+    <p class="body">{{ exercise['instruction']|safe }}<br><br>
         <img src="{{ url_for('static', filename=exercise['thumbnail']) }}"
              width="640"
              height="360"><br>
