@@ -14,10 +14,11 @@
         </div>
 
     </header>
-    <p class="body">{{ exercise['instruction'] }}<br>
-        {{ url_for('exercise_file', filepath=exercise['thumbnail']) }}<br>
-        <img src="{{ url_for('exercise_file', filepath=exercise['thumbnail']) }}" width="640" height="360"><br>
-        <a href="{{ url_for('exercise_file', filepath=exercise['template']) }}" download>
+    <p class="body">{{ exercise['instruction'] }}<br><br>
+        <img src="{{ url_for('static', filename=exercise['image']) }}"
+             width="640"
+             height="360"><br>
+
             <button type="button">Exercise
             </button>
         </a>
