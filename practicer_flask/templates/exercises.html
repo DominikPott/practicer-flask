@@ -3,13 +3,14 @@
 {% block header %}
 <h1>{% block title %}Exercises{% endblock %}</h1>
 {% endblock %}
-
 {% block content %}
-{% for exercise in exercises %}
+{% for categorie in categories.keys() %}
+<h1> {{ categorie }} </h1><br>
+{% for exercise in categories[categorie] %}
 <article class="post">
     <header>
         <div>
-            <h1>{{ exercise['label'] }}</h1>
+            <h2>{{ exercise['label'] }}</h2>
         </div>
     </header>
     <p class="body">{{ exercise['instruction']|safe }}<br><br>
@@ -25,5 +26,6 @@
 {% if not loop.last %}
 <hr>
 {% endif %}
+{% endfor %}
 {% endfor %}
 {% endblock %}
