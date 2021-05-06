@@ -5,12 +5,13 @@
 {% endblock %}
 {% block content %}
 {% for categorie in categories.keys() %}
-<h1> {{ categorie }} </h1><br>
+<article class="categorie">
+<h1> {{ categorie.capitalize() }} </h1><br>
 {% for exercise in categories[categorie] %}
-<article class="post">
+<article class="exercise">
     <header>
         <div>
-            <h2>{{ exercise['label'] }}</h2>
+            <h3>{{ exercise['label'] }}</h3>
         </div>
     </header>
     <p class="body">{{ exercise['instruction']|safe }}<br><br>
@@ -29,9 +30,14 @@
 
     </p>
 </article>
+
 {% if not loop.last %}
 <hr>
 {% endif %}
 {% endfor %}
+</article>
+{% if not loop.last %}
+<hr>
+{% endif %}
 {% endfor %}
 {% endblock %}
