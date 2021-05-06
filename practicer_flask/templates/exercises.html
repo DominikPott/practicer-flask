@@ -21,6 +21,12 @@
             <button type="button">Exercise
             </button>
         </a>
+        <br><br>
+        Links:{% for link in exercise["hyperlinks"] %}
+        <br><a href="{{ link }}" target="_blank">{{ link[:35] }}</a>
+        {% endfor %}
+        <br><br>
+
     </p>
 </article>
 {% if not loop.last %}
