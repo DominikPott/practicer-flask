@@ -1,41 +1,32 @@
 {% extends 'base.html' %}
 
-{% block header %}
-<h1>{% block title %}Exercises{% endblock %}</h1>
-{% endblock %}
 {% block content %}
 {% for categorie in categories.keys() %}
-<article class="categorie">
-<h1> {{ categorie.capitalize() }} </h1><br>
+<h2 class="category" align="center">{{ categorie.capitalize() }}</h2>
 {% for exercise in categories[categorie] %}
-<article class="exercise">
-    <header>
-        <div>
-            <h3>{{ exercise['label'] }}</h3>
-        </div>
-    </header>
-    <p class="body">{{ exercise['instruction']|safe }}<br><br>
-        <img src="{{ url_for('static', filename=exercise['thumbnail']) }}"
-             width="640"
-             height="360"><br>
+    <h3 align="center">{{ exercise['label'] }}</h3>
+    <div class="thumbnail">
         <a href="{{ url_for('static', filename=exercise['template']) }}">
-            <button type="button">Exercise
-            </button>
+            <img src="{{ url_for('static', filename=exercise['thumbnail']) }}" >
         </a>
-        <br><br>
-        Links:{% for link in exercise["hyperlinks"] %}
-        <br><a href="{{ link }}" target="_blank">{{ link[:35] }}</a>
+    </div>
+        <div align="center">
+        <fieldset class="instruction">
+            <legend>Instruction</legend>
+            {{ exercise['instruction']|safe }}
+        </fieldset>
+        <fieldset class="links">
+            <legend>Links</legend>
+        {% for link in exercise["hyperlinks"] %}
+            <a href="{{ link }}" target="_blank">{{ link[:35] }}</a><br>
         {% endfor %}
-        <br><br>
-
-    </p>
-</article>
+        </fieldset>
+    </div>
 
 {% if not loop.last %}
-<hr>
+<br><hr>
 {% endif %}
 {% endfor %}
-</article>
 {% if not loop.last %}
 <hr>
 {% endif %}

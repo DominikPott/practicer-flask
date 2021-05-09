@@ -1,9 +1,42 @@
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color:hsl(0, 0%, 90%);
 }
 
-.logo {
-  background-color: #0D122B;
-  padding: 10px;
-  color: white;
+img {
+  border: 1px solid hsl(0, 0%, 85%);
+  padding: 5px;
+  height: auto;
+  width: auto;
+  max-width: 640px;
 }
+
+.title {
+  background-color: hsl(260, 30%, 40%);
+  padding: 5px;
+  color: white;
+  text-align: center;
+}
+
+.category {
+  background-color: hsl(260, 20%, 40%);
+  color: white;
+  align: center;
+}
+
+.thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instruction {
+  max-width: 50%;
+  height: auto;
+}
+
+.links {
+  max-width: 50%;
+  height: auto;
+}
+
