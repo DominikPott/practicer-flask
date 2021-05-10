@@ -5,7 +5,8 @@ import os
 def exercises():
     root = os.path.dirname(__file__) + "/static/exercises"
     files = _find_exercise_files(root=root)
-    return _parse(files)
+    exercise_data = _parse(files)
+    return _sorted_by_categorie(exercise_data)
 
 
 def _find_exercise_files(root):
@@ -24,6 +25,11 @@ def _parse(exercise_files):
             data['path'] = f
         exercises_.append(data)
     return exercises_
+
+
+def _sorted_by_categorie(exercises):
+    return sorted(exercises, key=lambda exr: exr.get('categories', ['no categorie']))
+
 
 if __name__ == "__main__":
     print(exercises())

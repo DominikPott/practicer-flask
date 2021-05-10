@@ -1,7 +1,8 @@
+import collections
+
 from flask import Blueprint, render_template
 
 import practicer_flask.exercise_inventory
-from practicer_flask import log
 
 bp = Blueprint('exercises', __name__, )
 
@@ -9,9 +10,8 @@ bp = Blueprint('exercises', __name__, )
 @bp.route('/')
 def exercise():
     import os
-    exercises = practicer_flask.exercise_inventory.exercises()
-    categories = {}
-    for exercise in exercises:
+    categories = collections.OrderedDict()
+    for exercise in practicer_flask.exercise_inventory.exercises():
         path = exercise['path']
         directory = os.path.dirname(path)
         exercise['thumbnail'] = 'exercises/' + os.path.basename(os.path.dirname(directory)) + '/' + os.path.basename(
