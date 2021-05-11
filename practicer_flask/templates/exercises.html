@@ -2,9 +2,9 @@
 
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/exercises.css') }}">
-
+<br>
 {% for categorie in categories.keys() %}
-<h2 class="category" align="center">{{ categorie.capitalize() }}</h2>
+<h2 class="category" align="center" id="{{ categorie }}">{{ categorie.capitalize() }}</h2>
 {% for exercise in categories[categorie] %}
     <h3 align="center" id="{{ exercise['label'] }}">{{ exercise['label'] }}</h3>
     <div class="thumbnail">

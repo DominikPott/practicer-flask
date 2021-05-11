@@ -5,18 +5,21 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <div class="w3-container">
-  <div class="w3-bar w3-light-grey w3-hover-none">
-    {% for categorie in categories.keys() %}
-        <div class="w3-dropdown-hover">
-        <button class="w3-button">{{ categorie.capitalize() }}</button>
-            <div class="w3-dropdown-content w3-bar-block">
-            {% for exercise in categories[categorie] %}
-            <a href="#{{ exercise['label'] }}" class="w3-bar-item w3-button">{{ exercise['label'] }}</a>
-            {% endfor %}
+  <div class="w3-top">
+    <div class="w3-bar w3-light-grey">
+        {% for categorie in categories.keys() %}
+            <div class="w3-dropdown-hover">
+                <a href="#{{ categorie }}" >
+                <button class="w3-button">{{ categorie.capitalize() }}</button>
+                </a>
+                <div class="w3-dropdown-content w3-bar-block">
+                {% for exercise in categories[categorie] %}
+                <a href="#{{ exercise['label'] }}" class="w3-bar-item w3-button">{{ exercise['label'] }}</a>
+                {% endfor %}
+                </div>
             </div>
-        </div>
-    {% endfor %}
-
-  </div>
+        {% endfor %}
+      </div>
+    </div>
 </div>
 {% endblock %}
