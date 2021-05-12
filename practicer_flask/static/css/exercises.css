@@ -1,30 +1,57 @@
+.category {
+  background-color: hsl(260, 20%, 40%);
+  color: white;
+
+  text-align: center;
+  align: center;
+
+  font-size: 35px;
+  padding: 30px;
+}
+
+.exercise_label {
+  text-align: center;
+  align: center;
+
+  font-size: 25px;
+  padding: 10px;
+}
+
+.exercise {
+  float: center;
+  padding: 10px;
+}
+
+.exercise.thumbnail {
+  width: 50%;
+}
+
+.exercise.instruction {
+  width: 50%;
+}
+
+.exercise_row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer {
+  padding: 30px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .exercise.thumbnail, .exercise.instruction {
+    width: 100%;
+  }
+}
+
 img {
   border: 1px solid hsl(0, 0%, 85%);
   padding: 5px;
   height: auto;
-  width: auto;
+  width: 100%;
   max-width: 640px;
-}
-
-.category {
-  background-color: hsl(260, 20%, 40%);
-  color: white;
-  align: center;
-}
-
-.thumbnail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.instruction {
-  max-width: 50%;
-  height: auto;
-}
-
-.links {
-  max-width: 50%;
-  height: auto;
 }
 

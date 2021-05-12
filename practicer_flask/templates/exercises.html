@@ -2,35 +2,31 @@
 
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/exercises.css') }}">
-<br>
+
 {% for categorie in categories.keys() %}
-<h2 class="category" align="center" id="{{ categorie }}">{{ categorie.capitalize() }}</h2>
+<div class="category" id="{{ categorie }}">{{ categorie.capitalize() }}</div>
 {% for exercise in categories[categorie] %}
-    <h3 align="center" id="{{ exercise['label'] }}">{{ exercise['label'] }}</h3>
-    <div class="thumbnail">
-        <a href="{{ url_for('static', filename=exercise['template']) }}">
+    <div class="exercise_label" id="{{ exercise['label'] }}">{{ exercise['label'] }}</div>
+    <div class="exercise_row">
+      <div class="exercise thumbnail"><a href="{{ url_for('static', filename=exercise['template']) }}">
             <img src="{{ url_for('static', filename=exercise['thumbnail']) }}" >
-        </a>
-    </div>
-        <div align="center">
-        <fieldset class="instruction">
-            <legend>Instruction</legend>
+        </a></div>
+      <div class="exercise instruction">
+        <fieldset><legend>Instruction</legend>
             {{ exercise['instruction']|safe }}
         </fieldset>
-        <fieldset class="links">
-            <legend>Links</legend>
+        <fieldset><legend>Links</legend>
         {% for link in exercise["hyperlinks"] %}
             <a href="{{ link }}" target="_blank">{{ link[:35] }}</a><br>
         {% endfor %}
         </fieldset>
     </div>
+    </div>
 
 {% if not loop.last %}
-<br><hr>
+<div class="footer"></div>
 {% endif %}
 {% endfor %}
-{% if not loop.last %}
-<hr>
-{% endif %}
+
 {% endfor %}
 {% endblock %}
