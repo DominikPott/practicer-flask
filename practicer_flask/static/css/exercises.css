@@ -40,7 +40,13 @@
 .exercise.thumbnail {
   float: left;
   width: 50%;
+  transition: transform .2s;
 }
+
+.exercise.thumbnail:hover {
+    transform: scale(1.5);
+}
+
 
 .exercise.instruction {
   width: 50%;
@@ -70,4 +76,5 @@ img {
   width: 100%;
   max-width: 640px;
 }
+
 
