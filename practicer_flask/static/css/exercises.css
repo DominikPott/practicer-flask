@@ -9,32 +9,34 @@
 }
 
 .category {
-  background-color: hsl(260, 20%, 40%);
+  background-color: hsl(180, 50%, 60%);
   color: white;
 
   text-align: center;
   align: center;
 
   font-size: 25px;
-  padding: 15px;
 
+  padding: 9px;
   margin-bottom: 20px;
-  margin-top: 50px;
+  margin-top: 90px;
+}
+.exercise_container {
+  background-color: lightgray;
 }
 
 .exercise_label {
-  background-color: hsl(260, 10%, 40%);
+  background-color: hsl(180, 10%, 40%);
   text-align: center;
   align: center;
 
   color: white;
   font-size: 17px;
-  padding: 5px;
+  margin-bottom: 10px;
 }
 
 .exercise {
   float: left;
-  padding: 10px;
 }
 
 .exercise.thumbnail {
@@ -47,9 +49,12 @@
     transform: scale(1.5);
 }
 
-
 .exercise.instruction {
   width: 50%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.exercise_row {
 }
 
 .exercise_row:after {
@@ -63,18 +68,14 @@
   text-align: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1280px) {
   .exercise.thumbnail, .exercise.instruction {
     width: 100%;
   }
 }
 
 img {
-  border: 1px solid hsl(0, 0%, 85%);
-  padding: 5px;
   height: auto;
   width: 100%;
   max-width: 640px;
 }
-
-
