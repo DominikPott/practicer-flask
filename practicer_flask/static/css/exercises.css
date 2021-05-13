@@ -1,3 +1,13 @@
+.layout {
+    max-width:100%;
+    margin: 0 auto;
+}
+
+.layout_exercises {
+    max-width:70%;
+    margin: 0 auto;
+}
+
 .category {
   background-color: hsl(260, 20%, 40%);
   color: white;
@@ -47,7 +57,7 @@
   text-align: center;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .exercise.thumbnail, .exercise.instruction {
     width: 100%;
   }

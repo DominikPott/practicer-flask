@@ -3,9 +3,12 @@
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/exercises.css') }}">
 
+<div class="layout">
+
 {% for categorie in categories.keys() %}
 <div class="category" id="{{ categorie }}">{{ categorie.capitalize() }}</div>
-{% for exercise in categories[categorie] %}
+<div class="layout_exercises">
+    {% for exercise in categories[categorie] %}
     <div class="exercise_label" id="{{ exercise['label'] }}">{{ exercise['label'] }}</div>
     <div class="exercise_row">
       <div class="exercise thumbnail"><a href="{{ url_for('static', filename=exercise['template']) }}">
@@ -27,6 +30,7 @@
 <div class="footer"></div>
 {% endif %}
 {% endfor %}
-
+</div>
 {% endfor %}
+</div>
 {% endblock %}
