@@ -29,7 +29,3 @@ def _parse(exercise_files):
 
 def _sorted_by_categorie(exercises):
     return sorted(exercises, key=lambda exr: exr.get('categories', ['no categorie']))
-
-
-if __name__ == "__main__":
-    print(exercises())
