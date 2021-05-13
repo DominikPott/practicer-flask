@@ -66,13 +66,30 @@
   text-align: center;
 }
 
+img {
+  height: auto;
+  width: 100%;
+}
+
+/* Single Column Layout for medium size screens */
 @media (max-width: 1280px) {
   .exercise.thumbnail, .exercise.instruction {
     width: 100%;
   }
+
 }
 
-img {
-  height: auto;
-  width: 100%;
+/* Single Column Layout for mobile screens */
+@media (max-width: 800px) {
+  .exercise.thumbnail, .exercise.instruction {
+    width: 100%;
+  }
+
+  .layout_exercises{
+    max-width:95%;
+  }
+
+  .exercise.thumbnail:hover {
+    transform: scale(1);
+  }
 }
