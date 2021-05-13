@@ -45,7 +45,7 @@
 }
 
 .exercise.thumbnail:hover {
-    transform: scale(1.5);
+    transform: scale(1.42);
 }
 
 .exercise.instruction {
