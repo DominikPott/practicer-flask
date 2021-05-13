@@ -40,7 +40,7 @@
 
 .exercise.thumbnail {
   float: left;
-  width: 50%;
+  width: 60%;
   transition: transform .2s;
 }
 
@@ -49,8 +49,7 @@
 }
 
 .exercise.instruction {
-  width: 50%;
-  max-width: 640px;
+  width: 40%;
   margin: 0 auto;
 }
 .exercise_row {
@@ -76,5 +75,4 @@
 img {
   height: auto;
   width: 100%;
-  max-width: 640px;
 }
