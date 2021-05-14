@@ -1,0 +1,40 @@
+
+.exercise-widget {
+    display: flex;
+    width: 100%;
+}
+
+.exercise-widget.row {
+    flex: 1;
+    width: 100%;
+}
+
+.exercise-widget.exercise-item {
+    display: flex;
+    flex: 33%;
+    align-items: stretch;
+    width: 25%;
+    border: 2px solid darkgrey;
+    border-radius: 17px;
+    margin: 5px;
+}
+
+.exercise-widget.thumbnail {
+    height: 80px;
+    width:70%;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: auto;
+}
+
+.exercise-widget.text {
+    width: 30%;
+    margin: auto;
+    padding: 10px;
+}
+
+.exercise-widget.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
