@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<form method="post">
-    <label for="topic">New Topic:</label>
-    <input name="topic" id="topic" required>
-</form>
-
-{% for topic in topics%}
-<div class="topic" id="{{ topic.get('date', None) }}">
-    <br>{{ topic.get("date", None) }}: {{ topic.get("topic", "No Topic") }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/topics.css') }}">
+<div class="side"></div>
+<div class="container">
+    <form method="post">
+        <label for="topic">New Topic:</label>
+        <input name="topic" id="topic" required>
+    </form>
+    {% for topic in topics%}
+    <div class="topic" id="{{ topic.get('date', None) }}">
+        <br>{{ topic.get("date", None) }}: {{ topic.get("topic", "No Topic") }}
+    </div>
+    {% endfor %}
 </div>
 
-
-{% endfor %}
 {% endblock %}
