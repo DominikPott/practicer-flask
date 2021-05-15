@@ -7,6 +7,7 @@ from flask import Blueprint, render_template, request
 bp = Blueprint('topic', __name__)
 
 DB_FILE = "static/topics.csv"
+TIMEFORMAT = "%Y.%m.%d"
 
 
 @bp.route('/topic', methods=['GET', 'POST'])
@@ -15,7 +16,22 @@ def topic():
         topic = request.form['topic']
         t = new_topic(topic)
         store_topic(t)
-    return render_template("topic.html", topics=read_topics())
+    topics = read_topics()
+    topics = enrich_topics(topics)
+    return render_template("topic.html", topics=topics)
+
+
+def enrich_topics(topics):
+    today = datetime.date.today()
+    for topic in topics:
+        topic_date = _csv_date_to_datetime(date=topic['date'])
+        if topic_date == today:
+            topic['relative_date'] = 'today'
+        elif topic_date > today:
+            topic['relative_date'] = 'future'
+        elif topic_date < today:
+            topic['relative_date'] = 'past'
+    return topics
 
 
 def new_topic(topic):
@@ -24,19 +40,21 @@ def new_topic(topic):
 
 
 def first_free_date():
-    timeformat = "%Y.%m.%d"
     topics = read_topics()
     if not topics:
-        return datetime.date.today().strftime(timeformat)
+        return datetime.date.today().strftime(TIMEFORMAT)
     dates = sorted([topic['date'] for topic in topics], reverse=True)
-
-    date = [int(d) for d in dates[0].split('.')]
-    highest_date = datetime.date(*date)
+    highest_date = _csv_date_to_datetime(dates[0])
     if highest_date >= datetime.date.today():
         date = highest_date + datetime.timedelta(days=1)
     else:
         date = datetime.date.today()
-    return date.strftime(timeformat)
+    return date.strftime(TIMEFORMAT)
+
+
+def _csv_date_to_datetime(date):
+    date = [int(d) for d in date.split('.')]
+    return datetime.date(*date)
 
 
 def read_topics():

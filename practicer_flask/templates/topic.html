@@ -2,17 +2,18 @@
 {% block content %}
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/topics.css') }}">
-<div class="side"></div>
 <div class="container">
-    <form method="post">
+    <form method="post" class="new_topic">
         <label for="topic">New Topic:</label>
         <input name="topic" id="topic" required>
     </form>
-    {% for topic in topics%}
-    <div class="topic" id="{{ topic.get('date', None) }}">
-        <br>{{ topic.get("date", None) }}: {{ topic.get("topic", "No Topic") }}
+    <div class="topics">
+        {% for topic in topics%}
+        <div class="topic {{ topic.get('relative_date', 'today') }}" id="{{ topic.get('date', None) }}">
+            <br>{{ topic.get("date", None) }}: {{ topic.get("topic", "No Topic") }}
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 
 {% endblock %}

@@ -1,9 +1,29 @@
-.side {
-    width: 50%;
+.container {
+    width:15%;
+    min-width: 15%;
+    margin: 0 auto;
+
+}
+
+.new_topic {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.topics {
+    border: 2px solid darkgray;
     margin: 0 auto;
 }
-.container {
-    width:50%;
-    margin: 0 auto;
-    align: middle;
+
+.topic.future {
+    color: darkgray;
+}
+
+.topic.today {
+    background: lightgreen;
+}
+
+.topic.past {
+    color: darkgray;
+    background: lightblue;
 }
