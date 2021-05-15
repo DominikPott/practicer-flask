@@ -40,6 +40,7 @@ def first_free_date():
 
 
 def read_topics():
+    _create_db_file()
     with open(DB_FILE, newline='') as topic_db:
         fieldnames = ['date', 'topic']
         reader = csv.DictReader(topic_db, fieldnames=fieldnames)
