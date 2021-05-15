@@ -1,6 +1,6 @@
 import datetime
 
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, url_for
 
 import practicer_flask.redis_db
 
@@ -16,6 +16,7 @@ def topic():
         topic = request.form['topic']
         t = new_topic(topic)
         store_topic(t)
+        return redirect(url_for('.topic'))
     topics = read_topics()
     topics = enrich_topics_with_relative_date(topics)
     return render_template("topic.html", topics=topics)
