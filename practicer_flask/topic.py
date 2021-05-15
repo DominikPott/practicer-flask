@@ -1,12 +1,12 @@
-import csv
 import datetime
-import os
 
 from flask import Blueprint, render_template, request
 
+import practicer_flask.redis_db
+
 bp = Blueprint('topic', __name__)
 
-DB_FILE = "static/topics.csv"
+DB = practicer_flask.redis_db.get_db()
 TIMEFORMAT = "%Y.%m.%d"
 
 
@@ -17,14 +17,14 @@ def topic():
         t = new_topic(topic)
         store_topic(t)
     topics = read_topics()
-    topics = enrich_topics(topics)
+    topics = enrich_topics_with_relative_date(topics)
     return render_template("topic.html", topics=topics)
 
 
-def enrich_topics(topics):
+def enrich_topics_with_relative_date(topics):
     today = datetime.date.today()
     for topic in topics:
-        topic_date = _csv_date_to_datetime(date=topic['date'])
+        topic_date = _string_date_to_date(date=topic['date'])
         if topic_date == today:
             topic['relative_date'] = 'today'
         elif topic_date > today:
@@ -44,7 +44,7 @@ def first_free_date():
     if not topics:
         return datetime.date.today().strftime(TIMEFORMAT)
     dates = sorted([topic['date'] for topic in topics], reverse=True)
-    highest_date = _csv_date_to_datetime(dates[0])
+    highest_date = _string_date_to_date(dates[0])
     if highest_date >= datetime.date.today():
         date = highest_date + datetime.timedelta(days=1)
     else:
@@ -52,29 +52,19 @@ def first_free_date():
     return date.strftime(TIMEFORMAT)
 
 
-def _csv_date_to_datetime(date):
+def _string_date_to_date(date):
     date = [int(d) for d in date.split('.')]
     return datetime.date(*date)
 
 
 def read_topics():
-    _create_db_file()
-    with open(DB_FILE, newline='') as topic_db:
-        fieldnames = ['date', 'topic']
-        reader = csv.DictReader(topic_db, fieldnames=fieldnames)
-        topics = [topic for topic in reader]
-    return sorted(topics, key=lambda topic: topic['date'], reverse=True)
-
-
-def _create_db_file():
-    basedir = os.path.dirname(DB_FILE)
-    if not os.path.exists(basedir):
-        os.makedirs(basedir)
-    if not os.path.exists(DB_FILE):
-        open(DB_FILE, 'a').close()
+    topics = []
+    for date in DB.keys():
+        data = {'date': date, 'topic': DB.get(date)}
+        topics.append(data)
+    topics = sorted(topics, key=lambda t: t.get('date', None), reverse=True)
+    return topics
 
 
 def store_topic(topic):
-    with open(DB_FILE, 'a', newline='') as topic_db:
-        writer = csv.writer(topic_db)
-        writer.writerow([topic["date"], topic['topic']])
+    DB.set(topic["date"], topic['topic'])
