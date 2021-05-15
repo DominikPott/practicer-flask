@@ -3,7 +3,7 @@
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/exercise_widget.css') }}">
 
-
+{% for exercises in exercises_history %}
 <div class="exercise-widget row">
     {% for exercise in exercises %}
     <div class="exercise-widget exercise-item">
@@ -16,5 +16,6 @@
 
     {% endfor %}
 </div>
+{% endfor %}
 
 {% endblock %}

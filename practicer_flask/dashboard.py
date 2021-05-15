@@ -11,16 +11,24 @@ bp = Blueprint("dashboard", __name__)
 @bp.route("/dashboard")
 def dashboard():
     exercises = practicer_flask.exercise_inventory.exercises()
-    exercises = emulate_last_exercises(exercises)
     for exercise in exercises:
         path = exercise['path']
         directory = os.path.dirname(path)
         exercise['thumbnail'] = 'exercises/' + os.path.basename(os.path.dirname(directory)) + '/' + os.path.basename(
             directory) + '/' + exercise['thumbnail']
-    return render_template("dashboard.html", exercises=exercises)
+
+    exercises_history = emulate_days(exercises)
+    return render_template("dashboard.html", exercises_history=exercises_history)
+
+
+def emulate_days(exercises):
+    exercises_days = []
+    for day in range(random.randint(2, 5)):
+        exercises_days.append(emulate_last_exercises(exercises))
+    return exercises_days
 
 
 def emulate_last_exercises(exercises):
-    last_exercise_count = random.randint(1, 10)
+    last_exercise_count = random.randint(0, 3)
     random.shuffle(exercises)
     return exercises[:last_exercise_count]

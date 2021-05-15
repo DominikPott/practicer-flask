@@ -7,13 +7,16 @@
 .exercise-widget.row {
     flex: 1;
     width: 100%;
+    margin-bottom: 60px;
 }
 
 .exercise-widget.exercise-item {
     display: flex;
-    flex: 33%;
+    flex: 25%;
     align-items: stretch;
     width: 25%;
+    min-width: 25%;
+    max-width: 25%;
     border: 2px solid darkgrey;
     border-radius: 17px;
     margin: 5px;
