@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post">
+    <label for="topic">New Topic:</label>
+    <input name="topic" id="topic" required>
+</form>
+
+{% for topic in topics%}
+<div class="topic" id="{{ topic.get('date', None) }}">
+    <br>{{ topic.get("date", None) }}: {{ topic.get("topic", "No Topic") }}
+</div>
+
+
+{% endfor %}
+{% endblock %}
