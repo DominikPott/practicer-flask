@@ -1,6 +1,6 @@
 .container {
     width:15%;
-    min-width: 15%;
+    min-width: 200px;
     margin: 0 auto;
 
 }
@@ -8,6 +8,8 @@
 .new_topic {
     margin-top: 40px;
     margin-bottom: 40px;
+    width: 200px;
+
 }
 
 .topics {
@@ -21,6 +23,12 @@
 
 .topic.today {
     background: lightgreen;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 60px;
 }
 
 .topic.past {
