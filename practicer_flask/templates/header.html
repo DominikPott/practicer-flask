@@ -10,8 +10,8 @@
             <a href="{{ url_for('dashboard.dashboard') }}" class="w3-bar-item w3-button w3-center">Dashboard</a>
             <a href="{{ url_for('exercises.exercise') }}" class="w3-bar-item w3-button w3-center">Exercises</a>
             <a href="{{ url_for('topic.topic') }}" class="w3-bar-item w3-button w3-center">Topics</a>
-            <a class="w3-bar-item w3-button w3-center" >Models</a>
-            <a class="w3-bar-item w3-button w3-right">Login</a>
+            <a href="{{ url_for('model_viewer.model_viewer') }}" class="w3-bar-item w3-button w3-center" >Models</a>
+            <a href="{{ url_for('auth.login') }}" class="w3-bar-item w3-button w3-right">Login</a>
         </div>
     </div>
 </header>
