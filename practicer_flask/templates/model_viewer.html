@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Import the component -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/model_viewer.css') }}">
+
+<div class="container">
+    <!-- Use the model component -->
+    <model-viewer src="{{ url_for('static', filename='models/zbrush_female/female.gltf') }}"
+                  alt="The zbrush female base model"
+                  camera-controls></model-viewer>
+</div>
+{% endblock %}
+
+
