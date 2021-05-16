@@ -4,14 +4,14 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/exercise_widget.css') }}">
 
 <div class="container">
-    {% for exercises in exercises_history %}
+    {% for day, exercises in exercises_history %}
     <div class="exercise-widget row">
+        <div class="day">{{ day }}</div>
         {% for exercise in exercises %}
         <div class="exercise-widget exercise-item">
             <img src="{{ url_for('static', filename=exercise['thumbnail']) }}" class="exercise-widget thumbnail">
             <div class="exercise-widget text">
-                {{ exercise['label'] }}<br>
-                Stats: {{ exercise.get('stats', '0/0') }}
+                {{ exercise['label'] }}
             </div>
         </div>
         {% endfor %}

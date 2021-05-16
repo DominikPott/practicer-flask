@@ -23,8 +23,8 @@ def dashboard():
 
 def emulate_days(exercises):
     exercises_days = []
-    for day in range(random.randint(2, 5)):
-        exercises_days.append(emulate_last_exercises(exercises))
+    for day in range(365):
+        exercises_days.append((day, emulate_last_exercises(exercises)))
     return exercises_days
 
 
