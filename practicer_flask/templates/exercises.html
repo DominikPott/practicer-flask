@@ -1,37 +1,39 @@
-{% extends 'navbar.html' %}
+{% extends 'exercise_navbar.html' %}
 
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/exercises.css') }}">
 
 <div class="layout">
 
-{% for categorie in categories.keys() %}
-<div id="{{ categorie }}"></div>
-<div class="spacer"></div>
-<div class="category">{{ categorie.capitalize() }}</div>
-<div class="layout_exercises">
-    {% for exercise in categories[categorie] %}
-    <div class="exercise_container">
-    <div class="exercise_label" id="{{ exercise['label'] }}">{{ exercise['label'] }}</div>
-    <div class="exercise_row">
-      <div class="exercise thumbnail"><a href="{{ url_for('static', filename=exercise['template']) }}">
-            <img src="{{ url_for('static', filename=exercise['thumbnail']) }}" >
-        </a></div>
-      <div class="exercise instruction">
-        <fieldset><legend>Instruction</legend>
-            {{ exercise['instruction']|safe }}
-        </fieldset>
-        <fieldset><legend>Links</legend>
-        {% for link in exercise["hyperlinks"] %}
-            <a href="{{ link }}" target="_blank">{{ link[:35] }}</a><br>
+    {% for categorie in categories.keys() %}
+    <div id="{{ categorie }}"></div>
+    <div class="spacer"></div>
+    <div class="category">{{ categorie.capitalize() }}</div>
+    <div class="layout_exercises">
+        {% for exercise in categories[categorie] %}
+        <div class="exercise_container">
+            <div class="exercise_label" id="{{ exercise['label'] }}">{{ exercise['label'] }}</div>
+            <div class="exercise_row">
+                <div class="exercise thumbnail"><a href="{{ url_for('static', filename=exercise['template']) }}">
+                    <img src="{{ url_for('static', filename=exercise['thumbnail']) }}">
+                </a></div>
+                <div class="exercise instruction">
+                    <fieldset>
+                        <legend>Instruction</legend>
+                        {{ exercise['instruction']|safe }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Links</legend>
+                        {% for link in exercise["hyperlinks"] %}
+                        <a href="{{ link }}" target="_blank">{{ link[:35] }}</a><br>
+                        {% endfor %}
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="spacer"></div>
         {% endfor %}
-        </fieldset>
     </div>
-    </div>
-    </div>
-<div class="spacer"></div>
-{% endfor %}
-</div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}
