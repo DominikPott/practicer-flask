@@ -5,13 +5,15 @@
 
 
 <header>
-    <div class="w3-container">
-        <div class="w3-bar w3-light-grey w3-middle">
-            <a href="{{ url_for('dashboard.dashboard') }}" class="w3-bar-item w3-button w3-center">Dashboard</a>
-            <a href="{{ url_for('exercises.exercise') }}" class="w3-bar-item w3-button w3-center">Exercises</a>
-            <a href="{{ url_for('topic.topic') }}" class="w3-bar-item w3-button w3-center">Topics</a>
-            <a href="{{ url_for('model_viewer.model_viewer') }}" class="w3-bar-item w3-button w3-center" >Models</a>
-            <a href="{{ url_for('auth.login') }}" class="w3-bar-item w3-button w3-right">Login</a>
+    <div class="w3-container" style="width:80%;margin:0 auto;">
+        <div class="w3-bar w3-light-grey">
+            <a href="{{ url_for('dashboard.dashboard') }}" class="w3-bar-item w3-button w3-left"><i
+                    class="fa fa-home"></i></a>
+            <a href="{{ url_for('exercises.exercise') }}" class="w3-bar-item w3-button">Exercises</a>
+            <a href="{{ url_for('topic.topic') }}" class="w3-bar-item w3-button">Topics</a>
+            <a href="{{ url_for('model_viewer.model_viewer') }}" class="w3-bar-item w3-button">Models</a>
+            <a href="{{ url_for('auth.login') }}" class="w3-bar-item w3-button w3-right"><i
+                    class="fa fa-user-circle"></i></a></a>
         </div>
     </div>
 </header>

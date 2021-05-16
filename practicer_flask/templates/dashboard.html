@@ -3,19 +3,19 @@
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/exercise_widget.css') }}">
 
-{% for exercises in exercises_history %}
-<div class="exercise-widget row">
-    {% for exercise in exercises %}
-    <div class="exercise-widget exercise-item">
-        <img src="{{ url_for('static', filename=exercise['thumbnail']) }}" class="exercise-widget thumbnail">
-        <div class="exercise-widget text">
-            {{ exercise['label'] }}<br>
-            Stats: {{ exercise.get('stats', '0/0') }}
+<div class="container">
+    {% for exercises in exercises_history %}
+    <div class="exercise-widget row">
+        {% for exercise in exercises %}
+        <div class="exercise-widget exercise-item">
+            <img src="{{ url_for('static', filename=exercise['thumbnail']) }}" class="exercise-widget thumbnail">
+            <div class="exercise-widget text">
+                {{ exercise['label'] }}<br>
+                Stats: {{ exercise.get('stats', '0/0') }}
+            </div>
         </div>
+        {% endfor %}
     </div>
-
     {% endfor %}
 </div>
-{% endfor %}
-
 {% endblock %}
