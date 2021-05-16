@@ -1,18 +1,21 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
- <head>
-   <meta charset="utf-8">
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-     <title>Practicer</title>
- </head>
- <body>
-    {% block header %}
-    {% endblock %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 
-    {% block navbar %}
-    {% endblock %}
+    <title>Practicer</title>
+</head>
+<body>
+{% block header %}
+{% endblock %}
 
-    {% block content %}
-    {% endblock %}
- </body>
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+</body>
 </html>

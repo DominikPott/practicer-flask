@@ -1,25 +1,26 @@
 {% extends 'header.html' %}
 
 {% block navbar %}
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<div class="w3-container">
-  <div class="w3-middle w3-center">
-    <div class="w3-bar w3-light-grey">
-        {% for categorie in categories.keys() %}
-            <div class="w3-dropdown-hover">
-                <a href="#{{ categorie }}" >
-                <button class="w3-button">{{ categorie.capitalize() }}</button>
-                </a>
-                <div class="w3-dropdown-content w3-bar-block">
-                {% for exercise in categories[categorie] %}
-                <a href="#{{ exercise['label'] }}" class="w3-bar-item w3-button">{{ exercise['label'] }}</a>
-                {% endfor %}
+<div style="position: -webkit-sticky; position: sticky; top: 0px; z-index: 100;">
+    <div class="w3-container">
+        <div class="w3-center">
+            <div class="w3-bar w3-light-grey">
+                {% for categorie in categories.keys() %}
+                <div class="w3-dropdown-hover">
+                    <a href="#{{ categorie }}">
+                        <button class="w3-button w3-light-grey">{{ categorie.capitalize() }}</button>
+                    </a>
+                    <div class="w3-dropdown-content w3-bar-block">
+                        {% for exercise in categories[categorie] %}
+                        <a href="#{{ exercise['label'] }}" class="w3-bar-item w3-button">{{ exercise['label'] }}</a>
+                        {% endfor %}
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-      </div>
+        </div>
     </div>
 </div>
+
 {% endblock %}
