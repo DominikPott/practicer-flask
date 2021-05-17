@@ -24,11 +24,19 @@ def dashboard():
 def emulate_days(exercises):
     exercises_days = []
     for day in range(365):
+        day = emulate_previous_day(day)
         exercises_days.append((day, emulate_last_exercises(exercises)))
     return exercises_days
 
 
 def emulate_last_exercises(exercises):
-    last_exercise_count = random.randint(0, 3)
+    last_exercise_count = random.randint(0, 5)
     random.shuffle(exercises)
     return exercises[:last_exercise_count]
+
+
+def emulate_previous_day(day):
+    import datetime
+    date = datetime.date.today()
+    date = date - datetime.timedelta(days=day)
+    return date.strftime("%Y.%m.%d")

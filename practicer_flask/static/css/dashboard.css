@@ -14,24 +14,36 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
+.exercise-widget.date {
+    display: flex;
+    width: 150px;
+    height: 52px;
+    border: 2px solid darkgrey;
+    border-radius: 27px;
+    margin: 5px;
+    text-align: middle;
+}
+
 
 .exercise-widget.exercise-item {
     display: flex;
-    flex: 25%;
+    flex: 10%;
     align-items: stretch;
-    width: 25%;
-    max-width: 30%;
-    min-width: 25%;
-    height: 40px;
+    width: 15%;
+    max-width: 15%;
+    min-width: 15%;
+    height: 52px;
     border: 2px solid darkgrey;
-    border-radius: 17px;
+    border-radius: 27px;
+    margin: 5px;
 }
 
 .exercise-widget.thumbnail {
-    flex: 25%;
-    height: 37px;
+
+    height: 50px;
+    width: 50px;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 50%;
     margin: 0 auto;
 
 }

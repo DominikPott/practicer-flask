@@ -1,12 +1,12 @@
 {% extends 'header.html' %}
 
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/exercise_widget.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 
 <div class="container">
     {% for day, exercises in exercises_history %}
     <div class="exercise-widget row">
-        <div class="day">{{ day }}</div>
+        <div class="exercise-widget date">{{ day }}</div>
         {% for exercise in exercises %}
         <div class="exercise-widget exercise-item">
             <img src="{{ url_for('static', filename=exercise['thumbnail']) }}" class="exercise-widget thumbnail">
