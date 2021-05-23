@@ -130,7 +130,7 @@ if __name__ == "__main__":
     for _ in range(30):
         user = 0
         date = datetime.date.today()
-        date += datetime.timedelta(days=random.randint(0, 4))
+        date += datetime.timedelta(days=random.randint(0, 15))
         five_minutes = uuid.UUID("2ffc4556-7f63-434f-adf1-62441df47f1e")
         one_hundered_days = uuid.UUID("fd32be84-3fab-4903-8f03-89acfb56e23b")
         line_control = uuid.UUID("207105f3-8b8d-4cf8-b642-4e493014c772")
