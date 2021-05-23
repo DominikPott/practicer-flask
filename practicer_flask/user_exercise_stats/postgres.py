@@ -93,19 +93,23 @@ def add_exercise(user, date, exercise):
             cursor.close()
             db.close()
 
-def get_exercieses(user):
-    query = 'SELECT * FROM history WHERE user_id = %s AND date = %s'
 
-def get_exercises_for_date(user, date):
-    query = 'SELECT * FROM history WHERE user_id = %s AND date = %s'
-    return
+def exercieses(user):
+    cmd = 'SELECT * FROM history WHERE user_id = %s'
+    return query_(cmd, (user,))
 
-def query(cmd, **kwargs):
+
+def exercises_for_date(user, date):
+    cmd = 'SELECT * FROM history WHERE user_id = %s AND date = %s'
+    return query_(cmd, (user, date))
+
+
+def query_(cmd, args):
     db = None
     try:
         db = get_db()
         cursor = db.cursor()
-        cursor.execute(cmd, (user, date))
+        cursor.execute(cmd, args)
         return cursor.fetchall()
     except psycopg2.Error as e:
         print(e)
@@ -114,61 +118,28 @@ def query(cmd, **kwargs):
             cursor.close()
             db.close()
 
-def crud():
-    try:
-        connection = get_db()
-        cursor = connection.cursor()
-        # Executing a SQL query to insert data into  table
-        insert_query = """INSERT INTO history (MODEL, PRICE) VALUES ('Iphone12', 1100)"""
-        cursor.execute(insert_query)
-        connection.commit()
-        print("1 Record inserted successfully")
-        # Fetch result
-        cursor.execute("SELECT * from mobile")
-        record = cursor.fetchall()
-        print("Result ", record)
-
-        # Executing a SQL query to update table
-        update_query = """Update mobile set price = 1500 where id = 1"""
-        cursor.execute(update_query)
-        connection.commit()
-        count = cursor.rowcount
-        print(count, "Record updated successfully ")
-        # Fetch result
-        cursor.execute("SELECT * from mobile")
-        print("Result ", cursor.fetchall())
-
-        # Executing a SQL query to delete table
-        delete_query = """Delete from mobile where id = 1"""
-        # cursor.execute(delete_query)
-        # connection.commit()
-        count = cursor.rowcount
-        print(count, "Record deleted successfully ")
-        # Fetch result
-        cursor.execute("SELECT * from mobile")
-        print("Result ", cursor.fetchall())
-
-    except (Exception, psycopg2.Error) as error:
-        print("Error while connecting to PostgreSQL", error)
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            print("PostgreSQL connection is closed")
-
 
 if __name__ == "__main__":
     import datetime
     import uuid
+    import random
 
-    #drop_table()
+    drop_table()
     _create_table()
+    
+    for _ in range(30):
+        user = 0
+        date = datetime.date.today()
+        date += datetime.timedelta(days=random.randint(0, 4))
+        five_minutes = uuid.UUID("2ffc4556-7f63-434f-adf1-62441df47f1e")
+        one_hundered_days = uuid.UUID("fd32be84-3fab-4903-8f03-89acfb56e23b")
+        line_control = uuid.UUID("207105f3-8b8d-4cf8-b642-4e493014c772")
+        exercises_ = [five_minutes, one_hundered_days, line_control]
+        random.shuffle(exercises_)
+        add_exercise(user, date, exercises_[0])
 
-    user = 1
-    date = datetime.date.today()
-    date += datetime.timedelta(days=1)
-    exercise = uuid.uuid4()
+    data = exercises_for_date(user, date)
+    print("Today:", data)
+    exercieses = exercieses(user=0)
+    print('All:', exercieses)
 
-    add_exercise(user, date, exercise)
-    data = get_exercises_for_date(user, date)
-    print(data)

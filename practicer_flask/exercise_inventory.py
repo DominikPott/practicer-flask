@@ -6,6 +6,7 @@ def exercises():
     root = os.path.dirname(__file__) + "/static/exercises"
     files = _find_exercise_files(root=root)
     exercise_data = _parse(files)
+    exercise_data = _reformat_paths(exercise_data)
     return _sorted_by_categorie(exercise_data)
 
 
@@ -25,6 +26,17 @@ def _parse(exercise_files):
             data['path'] = f
         exercises_.append(data)
     return exercises_
+
+
+def _reformat_paths(exercises):
+    for exercise in exercises:
+        path = exercise['path']
+        directory = os.path.dirname(path)
+        exercise['thumbnail'] = 'exercises/' + os.path.basename(os.path.dirname(directory)) + '/' + os.path.basename(
+            directory) + '/' + exercise['thumbnail']
+        exercise['template'] = 'exercises/' + os.path.basename(os.path.dirname(directory)) + '/' + os.path.basename(
+            directory) + '/' + exercise['template']
+    return exercises
 
 
 def _sorted_by_categorie(exercises):

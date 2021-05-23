@@ -1,7 +1,7 @@
-""""Filesystem / database interface to query exercise stats."""
-import practicer_flask.user_exercise_stats.fs as filesystem
-import practicer_flask.user_exercise_stats.postgres as postgres
+""""Interface for exercise statistics."""
+import datetime
 
+import practicer_flask.user_exercise_stats.postgres as postgres
 db = postgres
 
 _DEFAULT_STATS = {'count': 0, 'level': 0, 'progress': 0.0, 'level_max_progress': 1}
@@ -32,3 +32,12 @@ def increment_exercise_stats(stats):
 
 def _update(exercise, stats_):
     db.update_exercise_stats(exercise, stats_)
+
+
+def exercise_histories(user):
+    return db.exercieses(user=user)
+
+
+def add_exercise_to_history(user, exercise):
+    date = datetime.date.today()
+    db.add_exercise(user, date, exercise["uuid"])
