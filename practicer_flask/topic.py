@@ -2,11 +2,10 @@ import datetime
 
 from flask import Blueprint, render_template, request, redirect, url_for
 
-import practicer_flask.redis_db
+import practicer_flask.topics.api as db
 
 bp = Blueprint('topic', __name__)
 
-DB = practicer_flask.redis_db.get_db()
 TIMEFORMAT = "%Y.%m.%d"
 
 
@@ -59,13 +58,10 @@ def _string_date_to_date(date):
 
 
 def read_topics():
-    topics = []
-    for date in DB.keys():
-        data = {'date': date, 'topic': DB.get(date)}
-        topics.append(data)
+    topics = db.topics()
     topics = sorted(topics, key=lambda t: t.get('date', None), reverse=True)
     return topics
 
 
 def store_topic(topic):
-    DB.set(topic["date"], topic['topic'])
+    db.add_topic(topic)
