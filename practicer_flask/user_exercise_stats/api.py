@@ -10,12 +10,12 @@ streak_db = practicer_flask.user_exercise_stats.streak
 level_db = practicer_flask.user_exercise_stats.experience
 
 
-def levels(user):
-    level_db.level(user=user)
+def experience(user):
+    level_db.experience(user=user)
 
 
-def increase_level(user, exercise):
-    level_db.increment_exercise(user, exercise)
+def increase_experience(user, exercise):
+    level_db.increment_experience(user, exercise)
 
 
 def history(user):

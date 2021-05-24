@@ -7,6 +7,38 @@
     background: lightgrey;
 }
 
+.overview {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    --color:green;
+}
+
+.level {
+    flex: 1 1 1;
+    height:80px;
+    width:80px;
+    min-width:80px;
+    min-height:80px;
+    border-radius:50%;
+    --degree:80deg;
+    background: conic-gradient( var(--color) var(--degree), transparent calc(var(--degree) + 0.5deg) 100%);
+
+}
+
+.thumbnail{
+  height:84%;
+  width:84%;
+  top:8%;
+  left:8%;
+  position:relative;
+  border-radius:50%;
+  background:#D3D3D3;
+  object-fit: cover;
+}
+
 .date {
     height: 52px;
     margin: 5px;

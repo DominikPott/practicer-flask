@@ -12,7 +12,9 @@ def dashboard():
     history = statistics_api.history(user=0)
     exercises_history = _map_exercises_to_history(history, exercises)
     streak = statistics_api.streak(user=0)
-    return render_template("dashboard.html", exercises_history=exercises_history, streak=streak)
+    exp = statistics_api.experience(user=0)
+    exercises = enrich_exercises_with_experience(exercises, exp)
+    return render_template("dashboard.html", exercises=exercises, exercises_history=exercises_history, streak=streak)
 
 
 def _map_exercises_to_history(history, exercises):
@@ -28,4 +30,9 @@ def _map_exercises_to_history(history, exercises):
     return data
 
 
+def enrich_exercises_with_experience(exercises, experience):
+    import random
+    for exercise in exercises:
+        exercise['exp'] = {"angle": random.randint(0, 359)}
+    return exercises
 
