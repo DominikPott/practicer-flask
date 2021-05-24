@@ -11,7 +11,7 @@ level_db = practicer_flask.user_exercise_stats.experience
 
 
 def experience(user):
-    level_db.experience(user=user)
+    return level_db.experience(user=user)
 
 
 def increase_experience(user, exercise):
