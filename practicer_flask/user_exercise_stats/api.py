@@ -1,13 +1,24 @@
 """"Interface for exercise statistics."""
 import datetime
 
-import practicer_flask.user_exercise_stats.exercise_history_postgres as exercise_history
+import practicer_flask.user_exercise_stats.history_postgres as exercise_history
 import practicer_flask.user_exercise_stats.streak
+import practicer_flask.user_exercise_stats.experience
 
 history_db = exercise_history
 streak_db = practicer_flask.user_exercise_stats.streak
+level_db = practicer_flask.user_exercise_stats.experience
 
-def exercise_histories(user):
+
+def levels(user):
+    level_db.level(user=user)
+
+
+def increase_level(user, exercise):
+    level_db.increment_exercise(user, exercise)
+
+
+def history(user):
     return history_db.exercieses(user=user)
 
 

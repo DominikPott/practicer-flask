@@ -9,7 +9,7 @@ bp = Blueprint("dashboard", __name__)
 @bp.route("/dashboard")
 def dashboard():
     exercises = practicer_flask.exercise_inventory.exercises()
-    history = statistics_api.exercise_histories(user=0)
+    history = statistics_api.history(user=0)
     exercises_history = _map_exercises_to_history(history, exercises)
     streak = statistics_api.streak(user=0)
     return render_template("dashboard.html", exercises_history=exercises_history, streak=streak)
