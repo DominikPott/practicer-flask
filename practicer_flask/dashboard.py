@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template
 
 import practicer_flask.exercise_inventory
-import practicer_flask.user_exercise_stats.api as history_api
+import practicer_flask.user_exercise_stats.api as statistics_api
 
 bp = Blueprint("dashboard", __name__)
 
@@ -9,9 +9,10 @@ bp = Blueprint("dashboard", __name__)
 @bp.route("/dashboard")
 def dashboard():
     exercises = practicer_flask.exercise_inventory.exercises()
-    history = history_api.exercise_histories(user=0)
+    history = statistics_api.exercise_histories(user=0)
     exercises_history = _map_exercises_to_history(history, exercises)
-    return render_template("dashboard.html", exercises_history=exercises_history)
+    streak = statistics_api.streak(user=0)
+    return render_template("dashboard.html", exercises_history=exercises_history, streak=streak)
 
 
 def _map_exercises_to_history(history, exercises):

@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 
 <div class="root">
+    Last Exercise: {{ streak[1] }}, Streak: {{ streak[0] }}
     {% for date, exercises in exercises_history %}
     <div class="container">
         <div class="date">{{ date }}</div>
