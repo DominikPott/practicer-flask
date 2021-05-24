@@ -7,15 +7,15 @@ import practicer_flask.user_exercise_stats.experience
 
 history_db = exercise_history
 streak_db = practicer_flask.user_exercise_stats.streak
-level_db = practicer_flask.user_exercise_stats.experience
+experience_db = practicer_flask.user_exercise_stats.experience
 
 
 def experience(user):
-    return level_db.experience(user=user)
+    return experience_db.experience(user=user)
 
 
 def increase_experience(user, exercise):
-    level_db.increment_experience(user, exercise)
+    experience_db.increment_experience(user, exercise)
 
 
 def history(user):
