@@ -7,11 +7,15 @@ bp = Blueprint("dashboard", __name__)
 
 
 @bp.route("/dashboard")
-def dashboard():
-    exercises = practicer_flask.exercise_inventory.exercises()
-    history = statistics_api.history(user=0)
-    exercises_history = _map_exercises_to_history(history, exercises)
+@bp.route("/dashboard/<exercise_uuid>")
+def dashboard(exercise_uuid=None):
+    if exercise_uuid:
+        statistics_api.increase_experience(user=0, exercise=exercise_uuid)
+
     streak = statistics_api.streak(user=0)
+    history = statistics_api.history(user=0)
+    exercises = practicer_flask.exercise_inventory.exercises()
+    exercises_history = _map_exercises_to_history(history, exercises)
     experiences = statistics_api.experience(user=0)
     exercises = enrich_exercises_with_experiences(exercises, experiences)
     return render_template("dashboard.html", exercises=exercises, exercises_history=exercises_history, streak=streak)
@@ -36,6 +40,6 @@ def enrich_exercises_with_experiences(exercises, experiences):
         if not uuid:
             raise KeyError("No uuid in exercise " + exercise['label'])
         exercise_exp = experiences.get(uuid, 0)
-        exercise['exp'] = {"angle": exercise_exp }
+        exercise['exp'] = {"angle": exercise_exp * 36}
     return exercises
 

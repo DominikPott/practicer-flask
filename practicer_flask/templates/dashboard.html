@@ -7,10 +7,12 @@
     Last Exercise: {{ streak[1] }}, Streak: {{ streak[0] }}
     <div class="overview">
         {% for exercise in exercises %}
-        <div class="level"
-             style="background: conic-gradient( green {{ exercise['exp']['angle'] }}deg, transparent calc( {{ exercise['exp']['angle'] }}deg + 0.5deg) 100%);">
-            <img src="{{ url_for('static', filename=exercise['thumbnail']) }}" class="thumbnail">
-        </div>
+        <a href="{{ url_for('dashboard.dashboard', exercise_uuid=exercise['uuid']) }}">
+            <div class="level"
+                 style="background: conic-gradient( green {{ exercise['exp']['angle'] }}deg, transparent calc( {{ exercise['exp']['angle'] }}deg + 0.5deg) 100%);">
+                <img src="{{ url_for('static', filename=exercise['thumbnail']) }}" class="thumbnail">
+            </div>
+        </a>
         {% endfor %}
     </div>
     {% for date, exercises in exercises_history %}

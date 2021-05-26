@@ -10,6 +10,13 @@ def exercises():
     return _sorted_by_categorie(exercise_data)
 
 
+def exercise_from_uuid(uuid):
+    for exercise in exercises():
+        if uuid == exercise.get('uuid', None):
+            return exercise
+    raise KeyError(f"Uuid {uuid} not found in exercises.")
+
+
 def _find_exercise_files(root):
     exercise_files = []
     for root_dir, dirs, files in os.walk(root):
