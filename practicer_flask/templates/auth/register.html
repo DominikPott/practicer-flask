@@ -1,0 +1,17 @@
+{% extends 'header.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+<div class="layout">
+    <form>
+        <div class="container">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter Username" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter Password" required>
+            <button type="submit" value="Register">Register</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
