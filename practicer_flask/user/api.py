@@ -6,8 +6,11 @@ def register(username, password):
 
 
 def user(username):
-    userdata = db.user(username=username)
-    return userdata
+    return db.user(username=username)
+
+
+def user_from_id(id):
+    return db.user_by_id(id=id)
 
 
 if __name__ == "__main__":

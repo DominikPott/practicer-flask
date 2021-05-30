@@ -85,6 +85,19 @@ def user(username):
             cursor.close()
             db.close()
 
+def user_by_id(id):
+    db = None
+    try:
+        db = get_db()
+        cursor = db.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        cursor.execute('SELECT * FROM userdata WHERE id = %s', (id,))
+        return cursor.fetchone()
+    except (Exception, psycopg2.Error) as error:
+        print("Error while connecting to PostgreSQL", error)
+    finally:
+        if db:
+            cursor.close()
+            db.close()
 
 if __name__ == "__main__":
     drop_table()
