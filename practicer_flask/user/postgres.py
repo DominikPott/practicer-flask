@@ -1,6 +1,7 @@
 import os
 
 import psycopg2
+import psycopg2.extras
 
 
 def get_db():
@@ -74,9 +75,9 @@ def user(username):
     db = None
     try:
         db = get_db()
-        cursor = db.cursor()
-        userdata = cursor.execute('SELECT * FROM userdata WHERE username = ?', (username,)).fetchone()
-        return userdata
+        cursor = db.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        cursor.execute('SELECT * FROM userdata WHERE username = %s', (username,))
+        return cursor.fetchone()
     except (Exception, psycopg2.Error) as error:
         print("Error while connecting to PostgreSQL", error)
     finally:
@@ -88,6 +89,6 @@ def user(username):
 if __name__ == "__main__":
     drop_table()
     create_table()
-    add_user(username='dome', password='dome')
-    data = user('dome')
-    print(data)
+    #add_user(username='dome', password='password')
+    #data = user('dome')
+

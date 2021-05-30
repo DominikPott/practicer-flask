@@ -6,4 +6,10 @@ def register(username, password):
 
 
 def user(username):
-    return db.user(username=username)
+    userdata = db.user(username=username)
+    return userdata
+
+
+if __name__ == "__main__":
+    data = user('adina')
+    print(data)

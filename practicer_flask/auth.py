@@ -3,6 +3,8 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
+import practicer_flask.user.api as user_db
+
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 
@@ -12,10 +14,8 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        print(username, password)
-
         error = None
-        user = "Dominik"
+        user = user_db.user(username=username)
 
         if user is None:
             error = 'Incorrect username.'
@@ -25,7 +25,7 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user['id']
-            return redirect(url_for('index'))
+            return redirect(url_for('dashboard.dashboard'))
 
         flash(error)
 
@@ -37,27 +37,18 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        print(username, password)
-        db = get_db()
+
         error = None
 
         if not username:
             error = 'Username is required.'
         elif not password:
             error = 'Password is required.'
-        elif db.execute(
-                'SELECT id FROM user WHERE username = ?', (username,)
-        ).fetchone() is not None:
+        elif user_db.user(username=username) is not None:
             error = f"User {username} is already registered."
-
         if error is None:
-            db.execute(
-                'INSERT INTO user (username, password) VALUES (?, ?)',
-                (username, generate_password_hash(password))
-            )
-            db.commit()
+            user_db.register(username=username, password=generate_password_hash(password))
             return redirect(url_for('auth.login'))
-
         flash(error)
 
     return render_template('auth/register.html')
