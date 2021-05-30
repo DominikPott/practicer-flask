@@ -40,6 +40,7 @@ def _connection_info():
 
 
 def _create_table():
+    db=None
     try:
         db = get_db()
         cursor = db.cursor()
