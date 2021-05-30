@@ -12,13 +12,14 @@ import practicer_flask.model_viewer
 def create_app(test_config=None):
     app = Flask(__name__)
 
-    app.config.from_mapping(SECRET_KEY='dev')
+    app.config.from_mapping(SECRET_KEY=os.environ.get("SECRET_KEY", 'local'))
 
     app.register_blueprint(practicer_flask.auth.bp)
     app.register_blueprint(practicer_flask.exercises.bp)
     app.register_blueprint(practicer_flask.dashboard.bp)
     app.register_blueprint(practicer_flask.topic.bp)
     return app
+
 
 app = create_app()
 

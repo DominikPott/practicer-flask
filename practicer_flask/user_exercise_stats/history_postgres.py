@@ -124,26 +124,7 @@ def query_(cmd, args):
 
 
 if __name__ == "__main__":
-    import datetime
-    import uuid
-    import random
-
     drop_table()
     _create_table()
     
-    for _ in range(30):
-        user = 0
-        date = datetime.date.today()
-        date += datetime.timedelta(days=random.randint(0, 15))
-        five_minutes = uuid.UUID("2ffc4556-7f63-434f-adf1-62441df47f1e")
-        one_hundered_days = uuid.UUID("fd32be84-3fab-4903-8f03-89acfb56e23b")
-        line_control = uuid.UUID("207105f3-8b8d-4cf8-b642-4e493014c772")
-        exercises_ = [five_minutes, one_hundered_days, line_control]
-        random.shuffle(exercises_)
-        add_exercise(user, date, exercises_[0])
-
-    data = exercises_for_date(user, date)
-    print("Today:", data)
-    exercieses = exercieses(user=0)
-    print('All:', exercieses)
 
