@@ -1,4 +1,6 @@
 import os
+import uuid
+
 import psycopg2
 import psycopg2.extras
 import psycopg2.extensions
@@ -74,17 +76,18 @@ def drop_table():
             db.close()
 
 
-def add_exercise(user, date, exercise):
+def add_exercise(user, date, exercise_uuid):
     query = """
     INSERT INTO history (user_id, date, exercise_ids) VALUES (%s, %s, ARRAY [%s])
     ON CONFLICT (user_id, date) DO UPDATE
         SET exercise_ids = history.exercise_ids || EXCLUDED.exercise_ids
     """
+    exercise_uuid = uuid.UUID(exercise_uuid)
     db = None
     try:
         db = get_db()
         cursor = db.cursor()
-        cursor.execute(query, (user, date, exercise))
+        cursor.execute(query, (user, date, exercise_uuid))
         db.commit()
     except psycopg2.Error as e:
         print(e)
