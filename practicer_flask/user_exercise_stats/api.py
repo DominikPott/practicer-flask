@@ -4,10 +4,19 @@ import datetime
 import practicer_flask.user_exercise_stats.history_postgres as exercise_history
 import practicer_flask.user_exercise_stats.streak
 import practicer_flask.user_exercise_stats.experience
+import practicer_flask.user_exercise_stats.progress as exercise_progress
 
 history_db = exercise_history
 streak_db = practicer_flask.user_exercise_stats.streak
 experience_db = practicer_flask.user_exercise_stats.experience
+
+
+def progress(user):
+    progress_data = dict()
+    experience_data = experience(user)
+    for exercise in experience_data.keys():
+        progress_data[exercise] = exercise_progress.experience_to_progress(experience_data[exercise])
+    return progress_data
 
 
 def experience(user):
@@ -33,3 +42,7 @@ def streak(user):
 
 def increase_streak(user):
     streak_db.update_streak(user=user)
+
+
+if __name__ == "__main__":
+    print(progress(user=2))
