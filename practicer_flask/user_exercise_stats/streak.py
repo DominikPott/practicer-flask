@@ -15,7 +15,9 @@ def update_streak(user):
 
 def _calculate_streak(streak):
     length, last_day = streak
-    if last_day >= datetime.date.today() - datetime.timedelta(days=2):
+    if last_day == datetime.date.today():
+        return streak
+    elif last_day >= datetime.date.today() - datetime.timedelta(days=2):
         length += 1
     else:
         length = 0

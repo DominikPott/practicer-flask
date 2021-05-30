@@ -11,6 +11,9 @@ bp = Blueprint("dashboard", __name__)
 def dashboard(exercise_uuid=None):
     if exercise_uuid:
         statistics_api.increase_experience(user=0, exercise=exercise_uuid)
+        statistics_api.increase_streak(user=0)
+        exercise_ = practicer_flask.exercise_inventory.exercise_from_uuid(exercise_uuid)
+        statistics_api.add_exercise_to_history(user=0, exercise=exercise_)
 
     streak = statistics_api.streak(user=0)
     history = statistics_api.history(user=0)
