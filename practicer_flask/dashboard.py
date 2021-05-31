@@ -22,8 +22,8 @@ def dashboard(exercise_uuid=None):
     history = statistics_api.history(user=user)
     exercises = practicer_flask.exercise_inventory.exercises()
     exercises_history = _map_exercises_to_history(history, exercises)
-    experiences = statistics_api.experience(user=user)
-    exercises = enrich_exercises_with_experiences(exercises, experiences)
+    progress = statistics_api.progress(user=user)
+    exercises = enrich_exercises_with_progress(exercises, progress)
     return render_template("dashboard.html", exercises=exercises, exercises_history=exercises_history, streak=streak)
 
 
@@ -40,12 +40,12 @@ def _map_exercises_to_history(history, exercises):
     return data
 
 
-def enrich_exercises_with_experiences(exercises, experiences):
+def enrich_exercises_with_progress(exercises, progress):
     for exercise in exercises:
         uuid = exercise.get('uuid', None)
         if not uuid:
             raise KeyError("No uuid in exercise " + exercise['label'])
-        exercise_exp = experiences.get(uuid, 0)
-        exercise['exp'] = {"angle": exercise_exp * 36}
+        level, progress_ = progress.get(uuid, (0, 0))
+        exercise['exp'] = {'level': level, "progress": progress_ * 360}
     return exercises
 
